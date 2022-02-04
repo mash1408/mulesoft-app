@@ -42,7 +42,13 @@ function displayData(req,res){
         if (err) throw err;  
             return res.status(200).send(result)
         }); 
-
+}
+function displayDataOfActor(req,res){
+    var sql='SELECT * FROM movies where actor="'+req.params.actorName+'"';
+    con.query(sql, function (err, result) {  
+        if (err) throw err;  
+            return res.status(200).send(result)
+        }); 
 }
 app.get('/',function(req,res){
 
@@ -65,6 +71,7 @@ app.get('/',function(req,res){
 
 app.post('/insert',insertData)
 app.get('/movies',displayData)
+app.get('/movies/:actorName',displayDataOfActor)
 app.listen(3000, () => {
     console.log(`Example app listening on port 3000`)
   })

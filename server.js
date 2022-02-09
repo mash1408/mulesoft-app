@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const { JSON } = require('mysql/lib/protocol/constants/types');
 const { json } = require('body-parser');
 
-
+//change the configuration variables here
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
